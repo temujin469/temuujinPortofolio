@@ -1,10 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
 import React, { useContext } from "react";
-import taliinKhishigImg from "../public/assets/projects/taliin-khishig.png";
-import cryptoImg from "../public/assets/projects/bodi.png";
-import netflixImg from "../public/assets/projects/otogmn.png";
-import twitchImg from "../public/assets/projects/together.png";
 import ProjectItem from "./ProjectItem";
 import AppContext from "../context/appContext";
 
