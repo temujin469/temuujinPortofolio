@@ -1,47 +1,63 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import propertyImg from '../public/assets/projects/property.jpg';
-import cryptoImg from '../public/assets/projects/crypto.jpg'
-import netflixImg from '../public/assets/projects/netflix.jpg'
-import twitchImg from '../public/assets/projects/twitch.jpg'
-import ProjectItem from './ProjectItem';
+import Image from "next/image";
+import Link from "next/link";
+import React, { useContext } from "react";
+import taliinKhishigImg from "../public/assets/projects/taliin-khishig.png";
+import cryptoImg from "../public/assets/projects/bodi.png";
+import netflixImg from "../public/assets/projects/otogmn.png";
+import twitchImg from "../public/assets/projects/together.png";
+import ProjectItem from "./ProjectItem";
+import AppContext from "../context/appContext";
 
 const Projects = () => {
+  const { lang } = useContext(AppContext);
   return (
-    <div id='projects' className='w-full'>
-      <div className='max-w-[1240px] mx-auto px-2 py-16'>
-        <p className='text-xl tracking-widest uppercase text-[#5651e5]'>
-          Projects
+    <div id="projects" className="w-full">
+      <div className="max-w-[1240px] mx-auto px-2 py-16">
+        <p
+          className="text-xl tracking-widest uppercase text-[#5651e5]"
+          data-aos="fade-up"
+        >
+          {lang === "ENGLISH" ? "Projects" : "Прожектууд"}
         </p>
-        <h2 className='py-4'>What I&apos;ve Built</h2>
-        <div className='grid md:grid-cols-2 gap-8'>
+        <h2 className="py-4">
+          {lang === "ENGLISH" ? `What i've Built` : "Миний хийсэн прожектууд"}
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
           <ProjectItem
-            title='Property Finder'
-            backgroundImg={propertyImg}
-            projectUrl='/property'
-            tech='React JS'
+            title="Taliin Khishig LLC"
+            backgroundImg="/assets/projects/taliin-khishig.png"
+            projectUrl="https://taliin-khishig.vercel.app/"
+            tech="ReactJS ,TailwindCSS"
           />
           <ProjectItem
-            title='Crypto App'
-            backgroundImg={cryptoImg}
-            projectUrl='/crypto'
-            tech='React JS'
-
+            title="Otogmn"
+            backgroundImg="/assets/projects/otogmn.png"
+            projectUrl="/crypto"
+            tech="ReactJS, TailwindCSS,NodeJS"
           />
           <ProjectItem
-            title='Netflix App'
-            backgroundImg={netflixImg}
-            projectUrl='/netflix'
-            tech='React JS'
-
+            title="Social Media App"
+            backgroundImg="/assets/projects/socialMedia.png"
+            projectUrl="/netflix"
+            tech="React JS"
           />
           <ProjectItem
-            title='Twitch UI'
-            backgroundImg={twitchImg}
-            projectUrl='/twitch'
-            tech='Next JS'
-
+            title="Techno UI"
+            backgroundImg="/assets/projects/technoBiyDaalt.png"
+            projectUrl="/twitch"
+            tech="Next JS"
+          />
+          <ProjectItem
+            title="Travel WEB"
+            backgroundImg="/assets/projects/aylal.png"
+            projectUrl="/twitch"
+            tech="Next JS"
+          />
+          <ProjectItem
+            title="Ecommerce"
+            backgroundImg="/assets/projects/ecommerce.png"
+            projectUrl="/twitch"
+            tech="Next JS"
           />
         </div>
       </div>
