@@ -16,7 +16,7 @@ const Navbar = () => {
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState("#ecf0f3");
   const [linkColor, setLinkColor] = useState("#1f2937");
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   // const [position, setPosition] = useState('fixed')
   // const router = useRouter();
 
@@ -109,7 +109,7 @@ const Navbar = () => {
     >
       <div className="flex px-5 dark:bg-darkPrimary justify-between items-center w-full h-full 2xl:px-16">
         <Link href="/">
-          <a className="text-white  font-bold md:text-2xl bg-primary p-3 rounded-md">
+          <a className="text-white  font-bold md:text-2xl bg-gradient-to-r from-primary to-[#ae70ff] p-3 rounded-md">
             {/* <Image
               src={NavLogo}
               alt="/"
@@ -149,22 +149,22 @@ const Navbar = () => {
           </div>
           <div>
             <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/">{lang === "ENGLISH" ? "Home" : "Нүүр"}</Link>
               </li>
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/#about">About</Link>
               </li>
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/#skills">Skills</Link>
               </li>
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/#projects">Projects</Link>
               </li>
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/resume">Resume</Link>
               </li>
-              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase hover:bg-primary p-3 rounded-xl duration-200 ease-in-out">
+              <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/#contact">Contact</Link>
               </li>
             </ul>
@@ -189,22 +189,21 @@ const Navbar = () => {
       >
         {/* Side Drawer Menu */}
         <div
-          className={
-            nav
-              ? " fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] dark:bg-darkPrimary p-10 ease-in duration-500"
-              : "fixed left-[-100%] top-0 p-10 ease-in duration-100"
-          }
+          className={`
+          fixed top-0 p-10 ease-in duration-500 h-screen w-[75%] sm:w-[60%] md:w-[45%] bg-[#ecf0f3] dark:bg-darkPrimary
+            ${nav ? "left-0" : "left-[-100%]"}
+          `}
         >
           <div>
             <div className="flex w-full items-center justify-between">
               <Link href="/">
-                <a>
-                  <Image src={NavLogo} width="87" height="35" alt="/" />
+                <a className="text-white  font-bold md:text-2xl bg-gradient-to-r from-primary to-[#ae70ff] p-3 rounded-md">
+                  Temuujin
                 </a>
               </Link>
               <div
                 onClick={handleNav}
-                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+                className="rounded-full shadow-lg shadow-gray-400 dark:shadow-darkThird p-3 cursor-pointer"
               >
                 <AiOutlineClose />
               </div>
@@ -249,9 +248,6 @@ const Navbar = () => {
               </Link>
             </ul>
             <div className="pt-40">
-              <p className="uppercase tracking-widest text-[#5651e5]">
-                Let&#39;s Connect
-              </p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 <a
                   href="https://www.linkedin.com/in/clint-briley-50056920a/"
