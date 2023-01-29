@@ -4,12 +4,13 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaFacebook } from "react-icons/fa";
 import AppContext from "../context/appContext";
+import Container from "./Container";
 
 const Main = () => {
   const { lang } = useContext(AppContext);
   return (
-    <div id="home" className="w-full h-screen text-center">
-      <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
+    <Container id={"main"} className="py-0">
+      <div className="text-center pt-[80px] min-h-screen 2xl:min-h-[700px] flex justify-center items-center">
         <div>
           {lang === "ENGLISH" ? (
             <>
@@ -51,7 +52,7 @@ const Main = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="rounded-full shadow-lg shadow-gray-400 hover:shadow-black dark:shadow-darkThird hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
+              <div className="rounded-full border dark:border-primary shadow-xl hover:shadow-black hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
                 <FaFacebook />
               </div>
             </a>
@@ -60,24 +61,24 @@ const Main = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="rounded-full shadow-lg shadow-gray-400 hover:shadow-black dark:shadow-darkThird hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
+              <div className="rounded-full border dark:border-primary shadow-xl hover:shadow-black hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
                 <FaGithub />
               </div>
             </a>
             <Link href="/#contact">
-              <div className="rounded-full shadow-lg shadow-gray-400 hover:shadow-black dark:shadow-darkThird hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
+              <div className="rounded-full border dark:border-primary shadow-xl hover:shadow-black hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
                 <AiOutlineMail />
               </div>
             </Link>
             <Link href="/resume">
-              <div className="rounded-full shadow-lg shadow-gray-400 hover:shadow-black dark:shadow-darkThird hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
+              <div className="rounded-full border dark:border-primary shadow-xl hover:shadow-black hover:shadow-2xl dark:hover:shadow-darkThird sm:p-6 p-5 cursor-pointer hover:scale-110 ease-in duration-100">
                 <BsFillPersonLinesFill />
               </div>
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

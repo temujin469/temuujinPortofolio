@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useContext } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
@@ -7,15 +6,13 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
 // import { useRouter } from 'next/router';
 import { RiMoonClearFill } from "react-icons/ri";
-import NavLogo from "../public/logo.png";
+// import NavLogo from "../public/logo.png";
 import AppContext from "../context/appContext";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const [navBg, setNavBg] = useState("#ecf0f3");
-  const [linkColor, setLinkColor] = useState("#1f2937");
   const [dark, setDark] = useState(true);
   // const [position, setPosition] = useState('fixed')
   // const router = useRouter();
@@ -53,26 +50,23 @@ const Navbar = () => {
   const { lang, setLang } = useContext(AppContext);
 
   useEffect(() => {
-    const mode = localStorage.theme;
+    const mode = localStorage.getItem("mode");
+    console.log(mode);
 
-    const handleTheme = () => {
-      if (mode === "dark") {
-        setDark(true);
-        document.documentElement.classList.add("dark");
-      } else {
-        setDark(false);
-        document.documentElement.classList.remove("dark");
-      }
-    };
-
-    handleTheme();
+    if (mode === "dark") {
+      setDark(true);
+      document.documentElement.classList.add("dark");
+    } else if (mode === "light") {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
-  const toggleTheme = () => {
-    setDark(!dark);
+  const toggleTheme = (isDark) => {
+    setDark(isDark);
 
-    if (dark) {
-      localStorage.theme = "dark";
+    if (isDark) {
+      localStorage.setItem("mode", "dark");
       document.documentElement.classList.add("dark");
       toast.success("Харанхуй горим", {
         style: {
@@ -82,8 +76,8 @@ const Navbar = () => {
         },
       });
     } else {
-      localStorage.theme = "light";
-      document.scrollingElement.classList.remove("dark");
+      localStorage.setItem("mode", "light");
+      document.documentElement.classList.remove("dark");
       toast.success("Гэрэлтэй горим ");
     }
   };
@@ -100,14 +94,14 @@ const Navbar = () => {
 
   return (
     <div
-      style={{ backgroundColor: `${navBg}` }}
+      // style={{ backgroundColor: `${navBg}` }}
       className={
         shadow
-          ? "fixed w-full h-20 dark:shadow-darkThird/30 shadow-xl z-[100] ease-in-out duration-300"
+          ? "fixed w-full bg-white dark:bg-darkPrimary backdrop-filter h-20 shadow-md dark:shadow-darkThird/30  z-[100] ease-in-out duration-300"
           : "fixed w-full h-20 z-[100]"
       }
     >
-      <div className="flex px-5 dark:bg-darkPrimary justify-between items-center w-full h-full 2xl:px-16">
+      <div className="flex px-5 justify-between items-center w-full h-full sm:px-10 2xl:px-16">
         <Link href="/">
           <a className="text-white  font-bold md:text-2xl bg-gradient-to-r from-primary to-[#ae70ff] p-3 rounded-md">
             {/* <Image
@@ -121,7 +115,7 @@ const Navbar = () => {
           </a>
         </Link>
         <div className="flex items-center">
-          <div className="flex items-center mr-10">
+          <div className="flex items-center mr-5">
             <p
               onClick={setLangEnglish}
               className={`cursor-pointer ${
@@ -140,15 +134,19 @@ const Navbar = () => {
               Mon
             </p>
           </div>
-          <div onClick={toggleTheme}>
-            {dark ? (
-              <FaSun className="text-[20px]" />
-            ) : (
-              <RiMoonClearFill className="text-[20px]" />
-            )}
+          <div onClick={() => toggleTheme(!dark)}>
+            <div
+              className={`border-transparent duration-300 border-2 dark:bg-black/20 bg-gray-300 rounded-full p-2 hover:border-gray-600`}
+            >
+              {dark ? (
+                <FaSun className="text-[20px] text-white" />
+              ) : (
+                <RiMoonClearFill className="text-[20px] text-gray-700" />
+              )}
+            </div>
           </div>
           <div>
-            <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
+            <ul className="hidden lg:flex">
               <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/">{lang === "ENGLISH" ? "Home" : "Нүүр"}</Link>
               </li>
@@ -162,19 +160,17 @@ const Navbar = () => {
                 <Link href="/#projects">Projects</Link>
               </li>
               <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
-                <Link href="/resume">Resume</Link>
+                <Link href="/resume" scroll={false}>
+                  Resume
+                </Link>
               </li>
               <li className="ml-7 dark:text-light hover:text-light text-sm uppercase from-primary to-[#ae70ff] hover:bg-gradient-to-r p-3 rounded-xl duration-200 ease-in-out">
                 <Link href="/#contact">Contact</Link>
               </li>
             </ul>
             {/* Hamburger Icon */}
-            <div
-              style={{ color: `${linkColor}` }}
-              onClick={handleNav}
-              className="md:hidden"
-            >
-              <AiOutlineMenu size={25} className="dark:text-light ml-10" />
+            <div onClick={handleNav} className="lg:hidden">
+              <AiOutlineMenu size={25} className="dark:text-light ml-7" />
             </div>
           </div>
         </div>
@@ -184,7 +180,7 @@ const Navbar = () => {
       {/* Overlay */}
       <div
         className={
-          nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
+          nav ? "lg:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
         }
       >
         {/* Side Drawer Menu */}
@@ -287,6 +283,10 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+        <div
+          className={`w-full h-screen ${nav ? "block" : "hidden"}`}
+          onClick={() => setNav(false)}
+        ></div>
       </div>
     </div>
   );

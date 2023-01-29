@@ -1,13 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AboutImg from "../public/assets/about.jpg";
+import AboutImg from "../public/images/about.jpg";
+import Container from "./Container";
 
 const About = () => {
   return (
-    <div id="about" className="w-full md:h-screen p-2 flex items-center py-16">
-      <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
-        <div className="col-span-2">
+    <Container id={"about"} className="pt-0">
+      <div className="grid grid-cols-1 md:grid-cols-5 md:gap-12">
+        <div className="col-span-3 mb-5 md:mb-0">
           <p className="uppercase sm:text-xl text-base tracking-widest text-primary">
             About
           </p>
@@ -36,11 +37,15 @@ const About = () => {
             </p>
           </Link>
         </div>
-        <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 dark:shadow-darkThird hover:shadow-2xl dark:hover:shadow-darkThird rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
-          <Image src={AboutImg} className="rounded-xl" alt="/" />
+        <div className="w-full  backdrop-blur-xl bg-white/20  col-span-2 h-auto m-auto shadow-xl border dark:border-primary dark:hover:shadow-darkThird hover:shadow-2xl rounded-xl flex items-center justify-center p-4 md:hover:scale-105 ease-in duration-300 group">
+          <Image
+            src={AboutImg}
+            className="rounded-xl group-hover:scale-95 md:group-hover:scale-100 duration-300"
+            alt="/"
+          />
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

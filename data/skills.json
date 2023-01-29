@@ -1,0 +1,66 @@
+[
+  {
+    "title": "HTML",
+    "img": "/images/skills/html.png"
+  },
+  {
+    "title": "CSS",
+    "img": "/images/skills/css.png"
+  },
+  {
+    "title": "JS",
+    "img": "/images/skills/javascript.png"
+  },
+  {
+    "title": "React",
+    "img": "/images/skills/react.png"
+  },
+  {
+    "title": "Tailwind",
+    "img": "/images/skills/tailwind.png"
+  },
+  {
+    "title": "Git",
+    "img": "/images/skills/github1.png"
+  },
+  {
+    "title": "Firebase",
+    "img": "/images/skills/firebase.png"
+  },
+  {
+    "title": "NextJS",
+    "img": "/images/skills/nextjs.png"
+  },
+  {
+    "title": "Java",
+    "img": "/images/skills/java.png"
+  },
+  {
+    "title": "NodeJS",
+    "img": "/images/skills/node.png"
+  },
+  {
+    "title": "Flutter",
+    "img": "/images/skills/flutter.png"
+  },
+  {
+    "title": "Dart",
+    "img": "/images/skills/dart.png"
+  },
+  {
+    "title": "C++",
+    "img": "/images/skills/cplus.png"
+  },
+  {
+    "title": "Python",
+    "img": "/images/skills/python.png"
+  },
+  {
+    "title": "MySQL",
+    "img": "/images/skills/mySql.png"
+  },
+  {
+    "title": "MongoDB",
+    "img": "/images/skills/mongo.png"
+  }
+]

@@ -14,9 +14,11 @@
     "@mui/material": "^5.11.2",
     "aos": "^2.3.4",
     "firebase": "^9.8.3",
+    "framer-motion": "^8.5.4",
     "gh-pages": "^4.0.0",
     "next": "12.1.6",
     "react": "18.1.0",
+    "react-dark-mode-toggle-2": "^2.0.8",
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.3.1"

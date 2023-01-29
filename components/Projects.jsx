@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import ProjectItem from "./ProjectItem";
 import AppContext from "../context/appContext";
+import Container from "./Container";
 
 const Projects = () => {
   const { lang } = useContext(AppContext);
   return (
-    <div id="projects" className="w-full">
-      <div className="max-w-[1240px] mx-auto px-2 py-16">
+    <Container id="projects">
+      <div>
         <p
           className="sm:text-xl text-base tracking-widest uppercase text-primary"
           data-aos="fade-up"
@@ -16,58 +17,58 @@ const Projects = () => {
         <h2 className="py-4 mb-2 text-xl lg:text-3xl sm:text-2xl">
           {lang === "ENGLISH" ? `What i've Built` : "Миний хийсэн прожектууд"}
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-[1000px] mx-auto pt-20">
           <ProjectItem
             title="Taliin Khishig LLC"
-            backgroundImg="/assets/projects/taliin-khishig.png"
+            backgroundImg="/images/projects/taliin-khishig.png"
             projectUrl="https://taliin-khishig.vercel.app/"
             tech="ReactJS ,TailwindCSS"
           />
           <ProjectItem
             title="Togethermn"
-            backgroundImg="/assets/projects/together.png"
+            backgroundImg="/images/projects/together.png"
             projectUrl="/twitch"
             tech="NextJS, TailwindCSS"
           />
           <ProjectItem
             title="Otogmn"
-            backgroundImg="/assets/projects/otogmn.png"
+            backgroundImg="/images/projects/otogmn.png"
             projectUrl="https://otog-mn.vercel.app/"
             tech="ReactJS, TailwindCSS"
           />
           <ProjectItem
             title="Bodi Electronics"
-            backgroundImg="/assets/projects/bodi.png"
+            backgroundImg="/images/projects/bodi.png"
             projectUrl="https://bodi-electronics.vercel.app/"
             tech="ReactJS, TailwindCSS"
           />
           <ProjectItem
             title="Social Media App"
-            backgroundImg="/assets/projects/socialMedia.png"
+            backgroundImg="/images/projects/socialMedia.png"
             projectUrl="*"
             tech="ReacJs,MySQL"
           />
           <ProjectItem
             title="Techno UI"
-            backgroundImg="/assets/projects/technoBiyDaalt.png"
+            backgroundImg="/images/projects/technoBiyDaalt.png"
             projectUrl="https://techno-biy-daalt.vercel.app/"
             tech="ReactJS,CSS"
           />
           <ProjectItem
             title="Travel WEB"
-            backgroundImg="/assets/projects/aylal.png"
+            backgroundImg="/images/projects/aylal.png"
             projectUrl="https://mern-aylal-app.vercel.app/"
             tech="ReactJs,CSS"
           />
           <ProjectItem
             title="Ecommerce"
-            backgroundImg="/assets/projects/ecommerce.png"
+            backgroundImg="/images/projects/ecommerce.png"
             projectUrl="https://cosmetic-commerce.vercel.app/"
             tech="NextJS, SanityCMS"
           />
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
